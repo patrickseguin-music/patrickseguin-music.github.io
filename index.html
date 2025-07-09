@@ -1,15 +1,41 @@
+<!--
+Patrick Seguin - Site Web Musical Professionnel
+Instructions de personnalisation :
+- Remplacez les liens, titres, images, et textes par vos informations.
+- Pour ajouter un morceau/album, dupliquez un bloc .album dans la section #musique.
+- Pour modifier les réseaux sociaux ou l’email, changez les liens dans la section #contact et dans le footer.
+- Pour activer Google Analytics, décommentez le script en bas et ajoutez votre ID.
+- Toutes les instructions sont commentées dans le code.
+- Poids du fichier conseillé : <500kb (optimisez vos images/audio).
+-->
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patrick Séguin - Artiste Musical</title>
+    <!-- SEO & Open Graph -->
+    <meta name="description" content="Patrick Séguin, auteur-compositeur indépendant. Découvrez sa musique, ses actualités et son univers créatif.">
+    <meta name="keywords" content="Patrick Seguin, musique, auteur-compositeur, Suno AI, DistroKid, streaming, artiste indépendant">
+    <meta property="og:title" content="Patrick Séguin - Artiste Musical">
+    <meta property="og:description" content="Découvrez la musique de Patrick Séguin, auteur-compositeur indépendant.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://patrickseguin-music.github.io/">
+    <meta property="og:image" content="artist-photo.jpg"><!-- Remplacez par le chemin de votre photo -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Patrick Séguin - Artiste Musical">
+    <meta name="twitter:description" content="Découvrez la musique de Patrick Séguin, auteur-compositeur indépendant.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://patrickseguin-music.github.io/">
     <style>
+        /* --- Palette sombre et accents verts inspirés Spotify --- */
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             background: #181818;
             color: #f5f5f5;
+            scroll-behavior: smooth; /* Smooth scroll pour navigateurs modernes */
         }
         header {
             background: #232526;
@@ -26,10 +52,44 @@
             margin: 0 18px;
             font-weight: 500;
             font-size: 1.1em;
-            transition: color 0.2s;
+            transition: color 0.2s, transform 0.2s;
+            position: relative;
         }
-        nav a:hover {
+        nav a:focus {
+            outline: 2px solid #1db954;
+            outline-offset: 2px;
+        }
+        nav a:hover, nav a:active {
             color: #1ed760;
+            transform: scale(1.07);
+        }
+        /* --- Menu mobile hamburger --- */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #1db954;
+            font-size: 2em;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        @media (max-width: 700px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                background: #232526;
+                position: absolute;
+                width: 100%;
+                left: 0;
+                top: 80px;
+                z-index: 10;
+            }
+            nav.open {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
         }
         main {
             max-width: 900px;
@@ -42,6 +102,13 @@
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             padding: 32px 24px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s, transform 0.7s;
+        }
+        section.visible {
+            opacity: 1;
+            transform: none;
         }
         h1, h2 {
             color: #1db954;
@@ -49,6 +116,31 @@
         .audio-player {
             margin: 24px 0;
             text-align: center;
+        }
+        .links {
+            margin: 18px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+        }
+        .link-button {
+            background: #1db954;
+            color: #fff;
+            border: none;
+            border-radius: 22px;
+            padding: 10px 22px;
+            font-weight: 600;
+            font-size: 1em;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            cursor: pointer;
+        }
+        .link-button:hover, .link-button:focus {
+            background: #1ed760;
+            transform: scale(1.06);
+            outline: none;
         }
         .discography {
             display: flex;
@@ -61,6 +153,11 @@
             border-radius: 8px;
             padding: 18px;
             box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .album:hover, .album:focus-within {
+            box-shadow: 0 4px 16px rgba(29,185,84,0.15);
+            transform: translateY(-4px) scale(1.02);
         }
         .album h3 {
             margin-top: 0;
@@ -74,6 +171,9 @@
             background: #2c2c2c;
             color: #f5f5f5;
         }
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: 2px solid #1db954;
+        }
         .contact-form button {
             background: #1db954;
             color: #fff;
@@ -82,22 +182,51 @@
             border-radius: 25px;
             font-size: 1em;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: background 0.2s, transform 0.2s;
         }
-        .contact-form button:hover {
+        .contact-form button:hover, .contact-form button:focus {
             background: #1ed760;
+            transform: scale(1.04);
+            outline: none;
         }
         .social-links a {
             margin-right: 18px;
             color: #1db954;
             font-size: 1.3em;
             text-decoration: none;
+            transition: color 0.2s;
+        }
+        .social-links a:hover, .social-links a:focus {
+            color: #1ed760;
+            outline: none;
         }
         .blog-post {
             margin-bottom: 32px;
         }
         .blog-post h4 {
             margin-bottom: 8px;
+        }
+        /* --- Footer --- */
+        footer {
+            background: #181818;
+            color: #bdbdbd;
+            text-align: center;
+            padding: 24px 10px 10px 10px;
+            font-size: 0.98em;
+            border-top: 1px solid #232526;
+        }
+        .footer-links {
+            margin: 10px 0;
+        }
+        .footer-links a {
+            color: #1db954;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover, .footer-links a:focus {
+            color: #1ed760;
         }
         @media (max-width: 700px) {
             .discography {
@@ -110,10 +239,12 @@
     </style>
 </head>
 <body>
+    <!-- Menu mobile hamburger -->
+    <button class="menu-toggle" aria-label="Ouvrir le menu" tabindex="0">&#9776;</button>
     <header>
         <h1>Patrick Séguin</h1>
         <p>Auteur-compositeur | Créateur musical</p>
-        <nav>
+        <nav aria-label="Navigation principale">
             <a href="#accueil">Accueil</a>
             <a href="#musique">Musique</a>
             <a href="#apropos">À propos</a>
@@ -122,25 +253,37 @@
         </nav>
     </header>
     <main>
+        <!-- Section Hero/Accueil -->
         <section id="accueil">
             <h2>Bienvenue</h2>
             <p>Découvrez mes dernières créations et plongez dans mon univers musical.</p>
             <div class="audio-player">
-                <!-- Exemple de lecteur audio HTML5 -->
+                <!-- Remplacez 'meilleur-morceau.mp3' par votre fichier audio -->
                 <audio controls>
                     <source src="meilleur-morceau.mp3" type="audio/mpeg">
                     Votre navigateur ne supporte pas la lecture audio.
                 </audio>
             </div>
             <div class="links">
-                <a href="#" class="link-button">Spotify</a>
-                <a href="#" class="link-button">Apple Music</a>
-                <a href="#" class="link-button">YouTube Music</a>
-                <a href="#" class="link-button">Deezer</a>
+                <!-- Personnalisez les liens vers vos plateformes de streaming -->
+                <a href="#" class="link-button" aria-label="Spotify">Spotify</a>
+                <a href="#" class="link-button" aria-label="Apple Music">Apple Music</a>
+                <a href="#" class="link-button" aria-label="YouTube Music">YouTube Music</a>
+                <a href="#" class="link-button" aria-label="Deezer">Deezer</a>
             </div>
+            <!-- Pour ajouter une photo d'artiste, insérez ici :
+            <img src="artist-photo.jpg" alt="Photo de Patrick Séguin" style="max-width:180px;border-radius:50%;margin:20px auto;display:block;">
+            -->
         </section>
+        <!-- Section Musique / Discographie -->
         <section id="musique">
             <h2>Musique</h2>
+            <!--
+            GUIDE : Pour ajouter un album ou single :
+            1. Dupliquez un bloc <div class="album">...</div>
+            2. Modifiez le titre, le fichier audio, les liens, et les paroles.
+            3. Gardez les fichiers audio légers pour la performance.
+            -->
             <div class="discography">
                 <div class="album">
                     <h3>Album 1</h3>
@@ -168,25 +311,31 @@
                 </div>
             </div>
         </section>
+        <!-- Section À propos -->
         <section id="apropos">
             <h2>À propos</h2>
+            <!-- Personnalisez votre biographie ici -->
             <p>Je suis Patrick Séguin, passionné par la musique et la création sonore. Mon approche créative s’inspire de la vie quotidienne et de mes expériences personnelles. J’écris pour partager des émotions et raconter des histoires à travers mes chansons.</p>
         </section>
+        <!-- Section Contact -->
         <section id="contact">
             <h2>Contact</h2>
-            <p>Email : patrick.seguin@email.com</p>
+            <!-- Modifiez l'email et les réseaux sociaux ci-dessous -->
+            <p>Email : <a href="mailto:patrick.seguin@email.com">patrick.seguin@email.com</a></p>
             <div class="social-links">
-                <a href="#" title="Instagram">Instagram</a>
-                <a href="#" title="Facebook">Facebook</a>
-                <a href="#" title="Twitter">Twitter</a>
+                <a href="#" title="Instagram" aria-label="Instagram">Instagram</a>
+                <a href="#" title="Facebook" aria-label="Facebook">Facebook</a>
+                <a href="#" title="Twitter" aria-label="Twitter">Twitter</a>
             </div>
-            <form class="contact-form">
-                <input type="text" name="nom" placeholder="Votre nom" required>
-                <input type="email" name="email" placeholder="Votre email" required>
-                <textarea name="message" rows="4" placeholder="Votre message" required></textarea>
+            <form class="contact-form" autocomplete="off">
+                <input type="text" name="nom" placeholder="Votre nom" required aria-label="Votre nom">
+                <input type="email" name="email" placeholder="Votre email" required aria-label="Votre email">
+                <textarea name="message" rows="4" placeholder="Votre message" required aria-label="Votre message"></textarea>
                 <button type="submit">Envoyer</button>
+                <div id="form-message" style="margin-top:10px;"></div>
             </form>
         </section>
+        <!-- Section Actualités / Blog -->
         <section id="actualites">
             <h2>Actualités / Blog</h2>
             <div class="blog-post">
@@ -199,5 +348,82 @@
             </div>
         </section>
     </main>
+    <!-- Footer avec mentions légales -->
+    <footer>
+        <div class="footer-links">
+            <a href="#accueil">Accueil</a> |
+            <a href="#musique">Musique</a> |
+            <a href="#apropos">À propos</a> |
+            <a href="#contact">Contact</a>
+        </div>
+        <div>
+            &copy; <span id="year"></span> Patrick Séguin. Tous droits réservés.
+        </div>
+        <div style="margin-top:8px;">
+            Site personnel sans cookies. Contact pour toute demande de droits ou collaboration.
+        </div>
+        <div class="footer-links" style="margin-top:8px;">
+            <!-- Répétez les liens sociaux ici si souhaité -->
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="Twitter">Twitter</a>
+        </div>
+    </footer>
+    <!-- JS pour interactivité, accessibilité, animations -->
+    <script>
+    // Menu mobile hamburger
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+    });
+    menuToggle.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') nav.classList.toggle('open');
+    });
+
+    // Smooth scroll fallback pour navigateurs anciens
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+                nav.classList.remove('open');
+            }
+        });
+    });
+
+    // Animation d’apparition au scroll (Intersection Observer)
+    const sections = document.querySelectorAll('main section');
+    const observer = new window.IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    sections.forEach(section => observer.observe(section));
+
+    // Formulaire de contact (simulation, pas d’envoi réel)
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('form-message').textContent = "Merci pour votre message !";
+        this.reset();
+    });
+
+    // Affichage dynamique de l’année dans le footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <!-- Google Analytics (décommenter et remplacer UA-XXXXX-Y par votre ID) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-XXXXX-Y');
+    </script>
+    -->
 </body>
 </html>
