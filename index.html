@@ -1,429 +1,489 @@
-<!--
-Patrick Seguin - Site Web Musical Professionnel
-Instructions de personnalisation :
-- Remplacez les liens, titres, images, et textes par vos informations.
-- Pour ajouter un morceau/album, dupliquez un bloc .album dans la section #musique.
-- Pour modifier les réseaux sociaux ou l’email, changez les liens dans la section #contact et dans le footer.
-- Pour activer Google Analytics, décommentez le script en bas et ajoutez votre ID.
-- Toutes les instructions sont commentées dans le code.
-- Poids du fichier conseillé : <500kb (optimisez vos images/audio).
--->
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patrick Séguin - Artiste Musical</title>
-    <!-- SEO & Open Graph -->
-    <meta name="description" content="Patrick Séguin, auteur-compositeur indépendant. Découvrez sa musique, ses actualités et son univers créatif.">
-    <meta name="keywords" content="Patrick Seguin, musique, auteur-compositeur, Suno AI, DistroKid, streaming, artiste indépendant">
-    <meta property="og:title" content="Patrick Séguin - Artiste Musical">
-    <meta property="og:description" content="Découvrez la musique de Patrick Séguin, auteur-compositeur indépendant.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://patrickseguin-music.github.io/">
-    <meta property="og:image" content="artist-photo.jpg"><!-- Remplacez par le chemin de votre photo -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Patrick Séguin - Artiste Musical">
-    <meta name="twitter:description" content="Découvrez la musique de Patrick Séguin, auteur-compositeur indépendant.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://patrickseguin-music.github.io/">
+    <title>Patrick Seguin - Auteur-compositeur | Créateur musical</title>
+    <meta name="description" content="Site officiel de Patrick Seguin, artiste musical indépendant. Découvrez mes créations musicales réalisées avec Suno AI.">
     <style>
-        /* --- Palette sombre et accents verts inspirés Spotify --- */
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+        /* Base & Reset */
+        :root {
+            --primary: #1DB954;
+            --dark: #121212;
+            --dark-secondary: #181818;
+            --light: #ffffff;
+            --gray: #b3b3b3;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
             margin: 0;
-            background: #181818;
-            color: #f5f5f5;
-            scroll-behavior: smooth; /* Smooth scroll pour navigateurs modernes */
+            padding: 0;
+            box-sizing: border-box;
         }
-        header {
-            background: #232526;
-            padding: 40px 0 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        
+        body {
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
         }
-        nav {
-            margin: 20px 0 0 0;
+        
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
         }
-        nav a {
-            color: #1db954;
+        
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--gray);
+        }
+        
+        a {
+            color: var(--primary);
             text-decoration: none;
-            margin: 0 18px;
-            font-weight: 500;
-            font-size: 1.1em;
-            transition: color 0.2s, transform 0.2s;
-            position: relative;
+            transition: var(--transition);
         }
-        nav a:focus {
-            outline: 2px solid #1db954;
-            outline-offset: 2px;
+        
+        a:hover {
+            opacity: 0.8;
         }
-        nav a:hover, nav a:active {
-            color: #1ed760;
-            transform: scale(1.07);
+        
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
-        /* --- Menu mobile hamburger --- */
-        .menu-toggle {
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--dark-secondary);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+        }
+        
+        .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            color: #1db954;
-            font-size: 2em;
+            color: var(--light);
+            font-size: 1.5rem;
             cursor: pointer;
-            margin-top: 10px;
         }
-        @media (max-width: 700px) {
-            nav {
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--light);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Music Section */
+        .music {
+            background-color: var(--dark-secondary);
+        }
+        
+        .platforms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .platform {
+            background-color: var(--dark);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .platform:hover {
+            transform: translateY(-5px);
+            background-color: rgba(29, 185, 84, 0.1);
+        }
+        
+        .platform i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        /* Blog Section */
+        .blog-posts {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .blog-posts {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .post {
+            background-color: var(--dark-secondary);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .post-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .post-content {
+            padding: 1.5rem;
+        }
+        
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background-color: var(--dark-secondary);
+            color: var(--light);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-secondary);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links a {
+            font-size: 1.5rem;
+            color: var(--light);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
                 display: none;
-                flex-direction: column;
-                background: #232526;
-                position: absolute;
-                width: 100%;
-                left: 0;
-                top: 80px;
-                z-index: 10;
             }
-            nav.open {
-                display: flex;
-            }
-            .menu-toggle {
+            
+            .mobile-menu-btn {
                 display: block;
             }
-        }
-        main {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 0 20px 40px 20px;
-        }
-        section {
-            margin-bottom: 48px;
-            background: #232526;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            padding: 32px 24px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s, transform 0.7s;
-        }
-        section.visible {
-            opacity: 1;
-            transform: none;
-        }
-        h1, h2 {
-            color: #1db954;
-        }
-        .audio-player {
-            margin: 24px 0;
-            text-align: center;
-        }
-        .links {
-            margin: 18px 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            justify-content: center;
-        }
-        .link-button {
-            background: #1db954;
-            color: #fff;
-            border: none;
-            border-radius: 22px;
-            padding: 10px 22px;
-            font-weight: 600;
-            font-size: 1em;
-            text-decoration: none;
-            transition: background 0.2s, transform 0.2s;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-            cursor: pointer;
-        }
-        .link-button:hover, .link-button:focus {
-            background: #1ed760;
-            transform: scale(1.06);
-            outline: none;
-        }
-        .discography {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 32px;
-        }
-        .album {
-            flex: 1 1 250px;
-            background: #181818;
-            border-radius: 8px;
-            padding: 18px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-            transition: box-shadow 0.2s, transform 0.2s;
-        }
-        .album:hover, .album:focus-within {
-            box-shadow: 0 4px 16px rgba(29,185,84,0.15);
-            transform: translateY(-4px) scale(1.02);
-        }
-        .album h3 {
-            margin-top: 0;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0 16px 0;
-            border-radius: 6px;
-            border: none;
-            background: #2c2c2c;
-            color: #f5f5f5;
-        }
-        .contact-form input:focus, .contact-form textarea:focus {
-            outline: 2px solid #1db954;
-        }
-        .contact-form button {
-            background: #1db954;
-            color: #fff;
-            border: none;
-            padding: 10px 28px;
-            border-radius: 25px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.2s;
-        }
-        .contact-form button:hover, .contact-form button:focus {
-            background: #1ed760;
-            transform: scale(1.04);
-            outline: none;
-        }
-        .social-links a {
-            margin-right: 18px;
-            color: #1db954;
-            font-size: 1.3em;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .social-links a:hover, .social-links a:focus {
-            color: #1ed760;
-            outline: none;
-        }
-        .blog-post {
-            margin-bottom: 32px;
-        }
-        .blog-post h4 {
-            margin-bottom: 8px;
-        }
-        /* --- Footer --- */
-        footer {
-            background: #181818;
-            color: #bdbdbd;
-            text-align: center;
-            padding: 24px 10px 10px 10px;
-            font-size: 0.98em;
-            border-top: 1px solid #232526;
-        }
-        .footer-links {
-            margin: 10px 0;
-        }
-        .footer-links a {
-            color: #1db954;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 1em;
-            transition: color 0.2s;
-        }
-        .footer-links a:hover, .footer-links a:focus {
-            color: #1ed760;
-        }
-        @media (max-width: 700px) {
-            .discography {
-                flex-direction: column;
-            }
-            section {
-                padding: 18px 8px;
-            }
+            
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
         }
     </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Menu mobile hamburger -->
-    <button class="menu-toggle" aria-label="Ouvrir le menu" tabindex="0">&#9776;</button>
+    <!-- Header -->
     <header>
-        <h1>Patrick Séguin</h1>
-        <p>Auteur-compositeur | Créateur musical</p>
-        <nav aria-label="Navigation principale">
-            <a href="#accueil">Accueil</a>
-            <a href="#musique">Musique</a>
-            <a href="#apropos">À propos</a>
-            <a href="#contact">Contact</a>
-            <a href="#actualites">Actualités</a>
-        </nav>
+        <div class="container header-container">
+            <a href="#" class="logo">Patrick Seguin</a>
+            <nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#music">Musique</a></li>
+                    <li><a href="#about">À Propos</a></li>
+                    <li><a href="#blog">Actualités</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main>
-        <!-- Section Hero/Accueil -->
-        <section id="accueil">
-            <h2>Bienvenue</h2>
-            <p>Découvrez mes dernières créations et plongez dans mon univers musical.</p>
-            <div class="audio-player">
-                <!-- Remplacez 'meilleur-morceau.mp3' par votre fichier audio -->
-                <audio controls>
-                    <source src="meilleur-morceau.mp3" type="audio/mpeg">
-                    Votre navigateur ne supporte pas la lecture audio.
-                </audio>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Patrick Seguin</h1>
+            <p>Auteur-compositeur | Créateur musical</p>
+            <a href="#music" class="btn">Écouter ma musique</a>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="music">
+        <div class="container">
+            <h2>Ma Musique</h2>
+            <p>Découvrez mes créations sur toutes les plateformes</p>
+            
+            <div class="platforms">
+                <a href="#" class="platform" target="_blank">
+                    <i class="fab fa-spotify"></i>
+                    <h3>Spotify</h3>
+                </a>
+                <a href="#" class="platform" target="_blank">
+                    <i class="fab fa-apple"></i>
+                    <h3>Apple Music</h3>
+                </a>
+                <a href="#" class="platform" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                    <h3>YouTube Music</h3>
+                </a>
+                <a href="#" class="platform" target="_blank">
+                    <i class="fab fa-deezer"></i>
+                    <h3>Deezer</h3>
+                </a>
             </div>
-            <div class="links">
-                <!-- Personnalisez les liens vers vos plateformes de streaming -->
-                <a href="#" class="link-button" aria-label="Spotify">Spotify</a>
-                <a href="#" class="link-button" aria-label="Apple Music">Apple Music</a>
-                <a href="#" class="link-button" aria-label="YouTube Music">YouTube Music</a>
-                <a href="#" class="link-button" aria-label="Deezer">Deezer</a>
-            </div>
-            <!-- Pour ajouter une photo d'artiste, insérez ici :
-            <img src="artist-photo.jpg" alt="Photo de Patrick Séguin" style="max-width:180px;border-radius:50%;margin:20px auto;display:block;">
-            -->
-        </section>
-        <!-- Section Musique / Discographie -->
-        <section id="musique">
-            <h2>Musique</h2>
-            <!--
-            GUIDE : Pour ajouter un album ou single :
-            1. Dupliquez un bloc <div class="album">...</div>
-            2. Modifiez le titre, le fichier audio, les liens, et les paroles.
-            3. Gardez les fichiers audio légers pour la performance.
-            -->
-            <div class="discography">
-                <div class="album">
-                    <h3>Album 1</h3>
-                    <audio controls>
-                        <source src="album1-titre1.mp3" type="audio/mpeg">
-                        Votre navigateur ne supporte pas la lecture audio.
-                    </audio>
-                    <p><a href="#">Écouter sur DistroKid</a></p>
-                    <details>
-                        <summary>Paroles</summary>
-                        <p>Paroles du morceau...</p>
-                    </details>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>À Propos</h2>
+            <div class="about-content">
+                <div>
+                    <p>Je suis Patrick Seguin, artiste musical indépendant passionné par l'écriture et la création musicale.</p>
+                    <p>J'utilise Suno AI pour donner vie à mes compositions, combinant technologie et créativité pour produire une musique unique.</p>
                 </div>
-                <div class="album">
-                    <h3>Album 2</h3>
-                    <audio controls>
-                        <source src="album2-titre1.mp3" type="audio/mpeg">
-                        Votre navigateur ne supporte pas la lecture audio.
-                    </audio>
-                    <p><a href="#">Écouter sur DistroKid</a></p>
-                    <details>
-                        <summary>Paroles</summary>
-                        <p>Paroles du morceau...</p>
-                    </details>
+                <div>
+                    <p>Ma démarche artistique repose sur l'authenticité des textes et l'exploration de nouvelles sonorités.</p>
+                    <p>Distribué via DistroKid, je partage ma musique avec le monde tout en conservant mon indépendance créative.</p>
                 </div>
             </div>
-        </section>
-        <!-- Section À propos -->
-        <section id="apropos">
-            <h2>À propos</h2>
-            <!-- Personnalisez votre biographie ici -->
-            <p>Je suis Patrick Séguin, passionné par la musique et la création sonore. Mon approche créative s’inspire de la vie quotidienne et de mes expériences personnelles. J’écris pour partager des émotions et raconter des histoires à travers mes chansons.</p>
-        </section>
-        <!-- Section Contact -->
-        <section id="contact">
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2>Actualités</h2>
+            <div class="blog-posts">
+                <article class="post">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Processus créatif" class="post-img">
+                    <div class="post-content">
+                        <h3>Mon Processus Créatif</h3>
+                        <p>Découvrez comment je crée ma musique avec Suno AI, de l'écriture des paroles à la production finale.</p>
+                        <a href="#" class="btn">Lire plus</a>
+                    </div>
+                </article>
+                <article class="post">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Nouvelle sortie" class="post-img">
+                    <div class="post-content">
+                        <h3>Nouvelle Sortie</h3>
+                        <p>Mon dernier single est maintenant disponible sur toutes les plateformes. Découvrez l'histoire derrière cette création.</p>
+                        <a href="#" class="btn">Lire plus</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
             <h2>Contact</h2>
-            <!-- Modifiez l'email et les réseaux sociaux ci-dessous -->
-            <p>Email : <a href="mailto:patrick.seguin@email.com">patrick.seguin@email.com</a></p>
-            <div class="social-links">
-                <a href="#" title="Instagram" aria-label="Instagram">Instagram</a>
-                <a href="#" title="Facebook" aria-label="Facebook">Facebook</a>
-                <a href="#" title="Twitter" aria-label="Twitter">Twitter</a>
-            </div>
-            <form class="contact-form" autocomplete="off">
-                <input type="text" name="nom" placeholder="Votre nom" required aria-label="Votre nom">
-                <input type="email" name="email" placeholder="Votre email" required aria-label="Votre email">
-                <textarea name="message" rows="4" placeholder="Votre message" required aria-label="Votre message"></textarea>
-                <button type="submit">Envoyer</button>
-                <div id="form-message" style="margin-top:10px;"></div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn">Envoyer</button>
             </form>
-        </section>
-        <!-- Section Actualités / Blog -->
-        <section id="actualites">
-            <h2>Actualités / Blog</h2>
-            <div class="blog-post">
-                <h4>Nouvelle sortie : "Titre du morceau"</h4>
-                <p>Découvrez mon dernier single, disponible sur toutes les plateformes !</p>
-            </div>
-            <div class="blog-post">
-                <h4>Processus créatif</h4>
-                <p>Je partage ici mon inspiration et les coulisses de l’écriture de mes chansons.</p>
-            </div>
-        </section>
-    </main>
-    <!-- Footer avec mentions légales -->
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <div class="footer-links">
-            <a href="#accueil">Accueil</a> |
-            <a href="#musique">Musique</a> |
-            <a href="#apropos">À propos</a> |
-            <a href="#contact">Contact</a>
-        </div>
-        <div>
-            &copy; <span id="year"></span> Patrick Séguin. Tous droits réservés.
-        </div>
-        <div style="margin-top:8px;">
-            Site personnel sans cookies. Contact pour toute demande de droits ou collaboration.
-        </div>
-        <div class="footer-links" style="margin-top:8px;">
-            <!-- Répétez les liens sociaux ici si souhaité -->
-            <a href="#" aria-label="Instagram">Instagram</a>
-            <a href="#" aria-label="Facebook">Facebook</a>
-            <a href="#" aria-label="Twitter">Twitter</a>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 Patrick Seguin. Tous droits réservés.</p>
         </div>
     </footer>
-    <!-- JS pour interactivité, accessibilité, animations -->
-    <script>
-    // Menu mobile hamburger
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
-    menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('open');
-    });
-    menuToggle.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') nav.classList.toggle('open');
-    });
 
-    // Smooth scroll fallback pour navigateurs anciens
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
-                nav.classList.remove('open');
-            }
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.style.display === 'flex') {
+                        navLinks.style.display = 'none';
+                    }
+                }
+            });
         });
-    });
-
-    // Animation d’apparition au scroll (Intersection Observer)
-    const sections = document.querySelectorAll('main section');
-    const observer = new window.IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
+        
+        // Form submission
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Merci pour votre message! Je vous répondrai dès que possible.');
+                this.reset();
+            });
+        }
+        
+        // Scroll animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.platform, .post');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animations
+        document.querySelectorAll('.platform, .post').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         });
-    }, { threshold: 0.15 });
-    sections.forEach(section => observer.observe(section));
-
-    // Formulaire de contact (simulation, pas d’envoi réel)
-    document.querySelector('.contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        document.getElementById('form-message').textContent = "Merci pour votre message !";
-        this.reset();
-    });
-
-    // Affichage dynamique de l’année dans le footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+        
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on load
     </script>
-    <!-- Google Analytics (décommenter et remplacer UA-XXXXX-Y par votre ID) -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-XXXXX-Y');
-    </script>
-    -->
 </body>
 </html>
