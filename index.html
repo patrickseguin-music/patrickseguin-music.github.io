@@ -75,6 +75,41 @@
             z-index: 100;
             padding: 1rem 0;
         }
+
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid var(--gray);
+            color: var(--gray);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .lang-btn.active {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: var(--light);
+        }
+
+        .lang-btn:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .language-switcher {
+                margin-left: 0;
+                margin-top: 1rem;
+                justify-content: center;
+            }
+        }
         
         .header-container {
             display: flex;
@@ -296,11 +331,15 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul class="nav-links">
-                    <li><a href="#music">Musique</a></li>
-                    <li><a href="#about">À Propos</a></li>
-                    <li><a href="#blog">Actualités</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#music" data-i18n="music">Musique</a></li>
+                    <li><a href="#about" data-i18n="about">À Propos</a></li>
+                    <li><a href="#blog" data-i18n="blog">Actualités</a></li>
+                    <li><a href="#contact" data-i18n="contact">Contact</a></li>
                 </ul>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
             </nav>
         </div>
     </header>
@@ -308,34 +347,34 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-            <h1>Patrick Seguin</h1>
-            <p>Auteur-compositeur | Créateur musical</p>
-            <a href="#music" class="btn">Écouter ma musique</a>
+            <h1 data-i18n="name">Patrick Seguin</h1>
+            <p data-i18n="tagline">Auteur-compositeur | Créateur musical</p>
+            <a href="#music" class="btn" data-i18n="listen">Écouter ma musique</a>
         </div>
     </section>
 
     <!-- Music Section -->
     <section id="music" class="music">
         <div class="container">
-            <h2>Ma Musique</h2>
-            <p>Découvrez mes créations sur toutes les plateformes</p>
+            <h2 data-i18n="music">Ma Musique</h2>
+            <p data-i18n="discover">Découvrez mes créations sur toutes les plateformes</p>
             
             <div class="platforms">
                 <a href="#" class="platform" target="_blank">
                     <i class="fab fa-spotify"></i>
-                    <h3>Spotify</h3>
+                    <h3 data-i18n="spotify">Spotify</h3>
                 </a>
                 <a href="#" class="platform" target="_blank">
                     <i class="fab fa-apple"></i>
-                    <h3>Apple Music</h3>
+                    <h3 data-i18n="apple_music">Apple Music</h3>
                 </a>
                 <a href="#" class="platform" target="_blank">
                     <i class="fab fa-youtube"></i>
-                    <h3>YouTube Music</h3>
+                    <h3 data-i18n="youtube_music">YouTube Music</h3>
                 </a>
                 <a href="#" class="platform" target="_blank">
                     <i class="fab fa-deezer"></i>
-                    <h3>Deezer</h3>
+                    <h3 data-i18n="deezer">Deezer</h3>
                 </a>
             </div>
         </div>
@@ -344,15 +383,15 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2>À Propos</h2>
+            <h2 data-i18n="about">À Propos</h2>
             <div class="about-content">
                 <div>
-                    <p>Je suis Patrick Seguin, artiste musical indépendant passionné par l'écriture et la création musicale.</p>
-                    <p>J'utilise Suno AI pour donner vie à mes compositions, combinant technologie et créativité pour produire une musique unique.</p>
+                    <p data-i18n="bio1">Je suis Patrick Seguin, artiste musical indépendant passionné par l'écriture et la création musicale.</p>
+                    <p data-i18n="bio2">J'utilise Suno AI pour donner vie à mes compositions, combinant technologie et créativité pour produire une musique unique.</p>
                 </div>
                 <div>
-                    <p>Ma démarche artistique repose sur l'authenticité des textes et l'exploration de nouvelles sonorités.</p>
-                    <p>Distribué via DistroKid, je partage ma musique avec le monde tout en conservant mon indépendance créative.</p>
+                    <p data-i18n="bio3">Ma démarche artistique repose sur l'authenticité des textes et l'exploration de nouvelles sonorités.</p>
+                    <p data-i18n="bio4">Distribué via DistroKid, je partage ma musique avec le monde tout en conservant mon indépendance créative.</p>
                 </div>
             </div>
         </div>
@@ -361,22 +400,22 @@
     <!-- Blog Section -->
     <section id="blog" class="blog">
         <div class="container">
-            <h2>Actualités</h2>
+            <h2 data-i18n="news">Actualités</h2>
             <div class="blog-posts">
                 <article class="post">
                     <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Processus créatif" class="post-img">
                     <div class="post-content">
-                        <h3>Mon Processus Créatif</h3>
-                        <p>Découvrez comment je crée ma musique avec Suno AI, de l'écriture des paroles à la production finale.</p>
-                        <a href="#" class="btn">Lire plus</a>
+                        <h3 data-i18n="process">Mon Processus Créatif</h3>
+                        <p data-i18n="processDesc">Découvrez comment je crée ma musique avec Suno AI, de l'écriture des paroles à la production finale.</p>
+                        <a href="#" class="btn" data-i18n="read_more">Lire plus</a>
                     </div>
                 </article>
                 <article class="post">
                     <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Nouvelle sortie" class="post-img">
                     <div class="post-content">
-                        <h3>Nouvelle Sortie</h3>
-                        <p>Mon dernier single est maintenant disponible sur toutes les plateformes. Découvrez l'histoire derrière cette création.</p>
-                        <a href="#" class="btn">Lire plus</a>
+                        <h3 data-i18n="release">Nouvelle Sortie</h3>
+                        <p data-i18n="releaseDesc">Mon dernier single est maintenant disponible sur toutes les plateformes. Découvrez l'histoire derrière cette création.</p>
+                        <a href="#" class="btn" data-i18n="read_more">Lire plus</a>
                     </div>
                 </article>
             </div>
@@ -386,21 +425,21 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Contact</h2>
+            <h2 data-i18n="contactTitle">Contact</h2>
             <form class="contact-form">
                 <div class="form-group">
-                    <label for="name">Nom</label>
+                    <label for="name" data-i18n="nameLabel">Nom</label>
                     <input type="text" id="name" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email" data-i18n="emailLabel">Email</label>
                     <input type="email" id="email" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Message</label>
+                    <label for="message" data-i18n="messageLabel">Message</label>
                     <textarea id="message" class="form-control" required></textarea>
                 </div>
-                <button type="submit" class="btn">Envoyer</button>
+                <button type="submit" class="btn" data-i18n="send">Envoyer</button>
             </form>
         </div>
     </section>
@@ -419,6 +458,101 @@
     </footer>
 
     <script>
+        // Translations
+        const translations = {
+            fr: {
+                music: "Musique",
+                about: "À Propos",
+                blog: "Actualités",
+                contact: "Contact",
+                name: "Patrick Seguin",
+                tagline: "Auteur-compositeur | Créateur musical",
+                listen: "Écouter ma musique",
+                discover: "Découvrez mes créations sur toutes les plateformes",
+                spotify: "Spotify",
+                apple_music: "Apple Music",
+                youtube_music: "YouTube Music",
+                deezer: "Deezer",
+                bio1: "Je suis Patrick Seguin, artiste musical indépendant passionné par l'écriture et la création musicale.",
+                bio2: "J'utilise Suno AI pour donner vie à mes compositions, combinant technologie et créativité pour produire une musique unique.",
+                bio3: "Ma démarche artistique repose sur l'authenticité des textes et l'exploration de nouvelles sonorités.",
+                bio4: "Distribué via DistroKid, je partage ma musique avec le monde tout en conservant mon indépendance créative.",
+                news: "Actualités",
+                process: "Mon Processus Créatif",
+                processDesc: "Découvrez comment je crée ma musique avec Suno AI, de l'écriture des paroles à la production finale.",
+                release: "Nouvelle Sortie",
+                releaseDesc: "Mon dernier single est maintenant disponible sur toutes les plateformes. Découvrez l'histoire derrière cette création.",
+                read_more: "Lire plus",
+                contactTitle: "Contact",
+                nameLabel: "Nom",
+                emailLabel: "Email",
+                messageLabel: "Message",
+                send: "Envoyer",
+                thanks: "Merci pour votre message! Je vous répondrai dès que possible."
+            },
+            en: {
+                music: "Music",
+                about: "About",
+                blog: "News",
+                contact: "Contact",
+                name: "Patrick Seguin",
+                tagline: "Songwriter | Music Creator",
+                listen: "Listen to my music",
+                discover: "Discover my creations on all platforms",
+                spotify: "Spotify",
+                apple_music: "Apple Music",
+                youtube_music: "YouTube Music",
+                deezer: "Deezer",
+                bio1: "I am Patrick Seguin, an independent music artist passionate about writing and music creation.",
+                bio2: "I use Suno AI to bring my compositions to life, combining technology and creativity to produce unique music.",
+                bio3: "My artistic approach is based on authentic lyrics and exploration of new sounds.",
+                bio4: "Distributed via DistroKid, I share my music with the world while maintaining my creative independence.",
+                news: "News",
+                process: "My Creative Process",
+                processDesc: "Discover how I create my music with Suno AI, from writing lyrics to final production.",
+                release: "New Release",
+                releaseDesc: "My latest single is now available on all platforms. Discover the story behind this creation.",
+                read_more: "Read more",
+                contactTitle: "Contact",
+                nameLabel: "Name",
+                emailLabel: "Email",
+                messageLabel: "Message",
+                send: "Send",
+                thanks: "Thank you for your message! I will get back to you as soon as possible."
+            }
+        };
+
+        // Set initial language
+        let currentLang = localStorage.getItem('language') || 'fr';
+
+        // Translate page
+        function translatePage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+            
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // Update active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+
+        // Language switcher
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                translatePage(btn.dataset.lang);
+            });
+        });
+
+        // Initialize translation
+        translatePage(currentLang);
+
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
@@ -455,7 +589,7 @@
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                alert('Merci pour votre message! Je vous répondrai dès que possible.');
+                alert(translations[currentLang].thanks);
                 this.reset();
             });
         }
