@@ -6,63 +6,198 @@
     <title>Patrick Séguin - Artiste Musical</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #1a1a1a;
-            color: #ffffff;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: #181818;
+            color: #f5f5f5;
         }
-        .header {
+        header {
+            background: #232526;
+            padding: 40px 0 20px 0;
             text-align: center;
-            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        .section {
-            margin-bottom: 30px;
+        nav {
+            margin: 20px 0 0 0;
         }
-        .links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .link-button {
-            background-color: #1db954;
-            color: white;
-            padding: 10px 20px;
+        nav a {
+            color: #1db954;
             text-decoration: none;
-            border-radius: 25px;
-            transition: background-color 0.3s;
+            margin: 0 18px;
+            font-weight: 500;
+            font-size: 1.1em;
+            transition: color 0.2s;
         }
-        .link-button:hover {
-            background-color: #1ed760;
+        nav a:hover {
+            color: #1ed760;
+        }
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px 40px 20px;
+        }
+        section {
+            margin-bottom: 48px;
+            background: #232526;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 32px 24px;
+        }
+        h1, h2 {
+            color: #1db954;
+        }
+        .audio-player {
+            margin: 24px 0;
+            text-align: center;
+        }
+        .discography {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+        .album {
+            flex: 1 1 250px;
+            background: #181818;
+            border-radius: 8px;
+            padding: 18px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .album h3 {
+            margin-top: 0;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 16px 0;
+            border-radius: 6px;
+            border: none;
+            background: #2c2c2c;
+            color: #f5f5f5;
+        }
+        .contact-form button {
+            background: #1db954;
+            color: #fff;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .contact-form button:hover {
+            background: #1ed760;
+        }
+        .social-links a {
+            margin-right: 18px;
+            color: #1db954;
+            font-size: 1.3em;
+            text-decoration: none;
+        }
+        .blog-post {
+            margin-bottom: 32px;
+        }
+        .blog-post h4 {
+            margin-bottom: 8px;
+        }
+        @media (max-width: 700px) {
+            .discography {
+                flex-direction: column;
+            }
+            section {
+                padding: 18px 8px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
+    <header>
         <h1>Patrick Séguin</h1>
         <p>Auteur-compositeur | Créateur musical</p>
-    </div>
-
-    <div class="section">
-        <h2>À propos</h2>
-        <p>Votre description ici...</p>
-    </div>
-
-    <div class="section">
-        <h2>Écoutez ma musique</h2>
-        <div class="links">
-            <a href="#" class="link-button">Spotify</a>
-            <a href="#" class="link-button">Apple Music</a>
-            <a href="#" class="link-button">YouTube Music</a>
-            <a href="#" class="link-button">Deezer</a>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>Contact</h2>
-        <p>Email: votre.email@example.com</p>
-    </div>
+        <nav>
+            <a href="#accueil">Accueil</a>
+            <a href="#musique">Musique</a>
+            <a href="#apropos">À propos</a>
+            <a href="#contact">Contact</a>
+            <a href="#actualites">Actualités</a>
+        </nav>
+    </header>
+    <main>
+        <section id="accueil">
+            <h2>Bienvenue</h2>
+            <p>Découvrez mes dernières créations et plongez dans mon univers musical.</p>
+            <div class="audio-player">
+                <!-- Exemple de lecteur audio HTML5 -->
+                <audio controls>
+                    <source src="meilleur-morceau.mp3" type="audio/mpeg">
+                    Votre navigateur ne supporte pas la lecture audio.
+                </audio>
+            </div>
+            <div class="links">
+                <a href="#" class="link-button">Spotify</a>
+                <a href="#" class="link-button">Apple Music</a>
+                <a href="#" class="link-button">YouTube Music</a>
+                <a href="#" class="link-button">Deezer</a>
+            </div>
+        </section>
+        <section id="musique">
+            <h2>Musique</h2>
+            <div class="discography">
+                <div class="album">
+                    <h3>Album 1</h3>
+                    <audio controls>
+                        <source src="album1-titre1.mp3" type="audio/mpeg">
+                        Votre navigateur ne supporte pas la lecture audio.
+                    </audio>
+                    <p><a href="#">Écouter sur DistroKid</a></p>
+                    <details>
+                        <summary>Paroles</summary>
+                        <p>Paroles du morceau...</p>
+                    </details>
+                </div>
+                <div class="album">
+                    <h3>Album 2</h3>
+                    <audio controls>
+                        <source src="album2-titre1.mp3" type="audio/mpeg">
+                        Votre navigateur ne supporte pas la lecture audio.
+                    </audio>
+                    <p><a href="#">Écouter sur DistroKid</a></p>
+                    <details>
+                        <summary>Paroles</summary>
+                        <p>Paroles du morceau...</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+        <section id="apropos">
+            <h2>À propos</h2>
+            <p>Je suis Patrick Séguin, passionné par la musique et la création sonore. Mon approche créative s’inspire de la vie quotidienne et de mes expériences personnelles. J’écris pour partager des émotions et raconter des histoires à travers mes chansons.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email : patrick.seguin@email.com</p>
+            <div class="social-links">
+                <a href="#" title="Instagram">Instagram</a>
+                <a href="#" title="Facebook">Facebook</a>
+                <a href="#" title="Twitter">Twitter</a>
+            </div>
+            <form class="contact-form">
+                <input type="text" name="nom" placeholder="Votre nom" required>
+                <input type="email" name="email" placeholder="Votre email" required>
+                <textarea name="message" rows="4" placeholder="Votre message" required></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+        <section id="actualites">
+            <h2>Actualités / Blog</h2>
+            <div class="blog-post">
+                <h4>Nouvelle sortie : "Titre du morceau"</h4>
+                <p>Découvrez mon dernier single, disponible sur toutes les plateformes !</p>
+            </div>
+            <div class="blog-post">
+                <h4>Processus créatif</h4>
+                <p>Je partage ici mon inspiration et les coulisses de l’écriture de mes chansons.</p>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
