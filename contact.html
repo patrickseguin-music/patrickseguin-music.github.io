@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Patrick Seguin | Restons en contact</title>
+    <meta name="description" content="Contactez Patrick Seguin pour collaborations musicales, questions ou projets. Formulaire de contact et réseaux sociaux.">
+    <meta name="keywords" content="Patrick Seguin, contact, collaboration musicale, Suno AI, projet musical">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Contact - Patrick Seguin | Restons en contact">
+    <meta property="og:description" content="Contactez Patrick Seguin pour collaborations musicales, questions ou projets créatifs.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://patrickseguin-music.github.io/contact.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="index.html" class="logo" data-i18n="name">Patrick Seguin</a>
+                
+                <nav>
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
+                    <ul class="nav-links">
+                        <li><a href="index.html" data-i18n="home">Accueil</a></li>
+                        <li><a href="music.html" data-i18n="music">Musique</a></li>
+                        <li><a href="about.html" data-i18n="about">À Propos</a></li>
+                        <li><a href="contact.html" class="active" data-i18n="contact">Contact</a></li>
+                    </ul>
+                    
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="fr">FR</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background: var(--gradient-primary); color: var(--light); text-align: center; padding: 8rem 0 5rem; margin-top: 80px;">
+        <div class="container">
+            <h1 data-i18n="contact_title">Contactez-moi</h1>
+            <p style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9);" data-i18n="contact_intro">N'hésitez pas à me contacter pour toute collaboration, question ou simplement pour discuter de musique.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="grid grid-2">
+                <!-- Contact Form -->
+                <div>
+                    <h2 data-i18n="send_message">Envoyer un message</h2>
+                    <p>Remplissez le formulaire ci-dessous et je vous répondrai dans les plus brefs délais.</p>
+                    
+                    <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST" style="margin-top: 2rem;">
+                        <div class="form-group">
+                            <label for="name" class="form-label" data-i18n="name_label">Nom</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label" data-i18n="email_label">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label" data-i18n="subject_label">Sujet</label>
+                            <select id="subject" name="subject" class="form-control" required>
+                                <option value="">Choisissez un sujet...</option>
+                                <option value="collaboration">Collaboration musicale</option>
+                                <option value="question">Question générale</option>
+                                <option value="feedback">Commentaire sur ma musique</option>
+                                <option value="media">Demande médias/presse</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label" data-i18n="message_label">Message</label>
+                            <textarea id="message" name="message" class="form-control" rows="6" required placeholder="Partagez vos idées, questions ou propositions..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large" data-i18n="send">Envoyer le message</button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h2>Autres moyens de contact</h2>
+                    
+                    <div class="contact-info" style="margin-top: 2rem;">
+                        <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 1.5rem; padding: 1rem; background: var(--gray-light); border-radius: var(--border-radius);">
+                            <i class="fas fa-envelope" style="font-size: 1.5rem; color: var(--primary); margin-right: 1rem; width: 30px;"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p style="margin: 0; color: var(--gray);">contact@patrickseguin-music.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 1.5rem; padding: 1rem; background: var(--gray-light); border-radius: var(--border-radius);">
+                            <i class="fas fa-clock" style="font-size: 1.5rem; color: var(--primary); margin-right: 1rem; width: 30px;"></i>
+                            <div>
+                                <h4>Réponse</h4>
+                                <p style="margin: 0; color: var(--gray);">Sous 24-48h en semaine</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 1.5rem; padding: 1rem; background: var(--gray-light); border-radius: var(--border-radius);">
+                            <i class="fas fa-globe" style="font-size: 1.5rem; color: var(--primary); margin-right: 1rem; width: 30px;"></i>
+                            <div>
+                                <h4>Langues</h4>
+                                <p style="margin: 0; color: var(--gray);">Français, English</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 3rem; margin-bottom: 1rem;" data-i18n="follow_me">Suivez-moi</h3>
+                    <div class="social-links" style="justify-content: flex-start; gap: 1rem;">
+                        <a href="#" class="social-link" target="_blank" rel="noopener noreferrer" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank" rel="noopener noreferrer" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank" rel="noopener noreferrer" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank" rel="noopener noreferrer" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank" rel="noopener noreferrer" title="Spotify">
+                            <i class="fab fa-spotify"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" style="background: var(--gray-light);">
+        <div class="container">
+            <h2 class="text-center mb-5">Questions fréquentes</h2>
+            
+            <div class="faq-grid" style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item" style="margin-bottom: 2rem;">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4 class="card-title">Collaborez-vous avec d'autres artistes?</h4>
+                            <p class="card-text">Absolument! Je suis toujours ouvert à de nouvelles collaborations créatives. N'hésitez pas à me présenter votre projet.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" style="margin-bottom: 2rem;">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4 class="card-title">Proposez-vous des services de composition?</h4>
+                            <p class="card-text">Je peux créer des compositions sur mesure en utilisant Suno AI. Contactez-moi pour discuter de vos besoins spécifiques.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" style="margin-bottom: 2rem;">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4 class="card-title">Comment puis-je utiliser votre musique?</h4>
+                            <p class="card-text">Pour toute utilisation commerciale ou synchronisation, veuillez me contacter pour discuter des droits et licences.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4 class="card-title">Donnez-vous des interviews ou participez-vous à des podcasts?</h4>
+                            <p class="card-text">Oui, je suis disponible pour des interviews sur ma musique, mon processus créatif avec l'IA, et l'industrie musicale moderne.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section" style="background: var(--gradient-primary); color: var(--light); text-align: center; padding: 4rem 0;">
+        <div class="container">
+            <h2 style="color: var(--light); margin-bottom: 1rem;">Restez connecté</h2>
+            <p style="margin-bottom: 2rem; color: rgba(255, 255, 255, 0.9);">Inscrivez-vous pour recevoir mes dernières nouvelles musicales et mises à jour exclusives</p>
+            
+            <div style="max-width: 500px; margin: 0 auto;">
+                <form id="newsletter-form" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                    <input type="email" name="newsletter-email" placeholder="Votre adresse email" required style="flex: 1; min-width: 300px; padding: 0.75rem 1rem; border: none; border-radius: var(--border-radius); font-size: 1rem;">
+                    <button type="submit" class="btn" style="background: var(--light); color: var(--primary); border: none; white-space: nowrap; font-weight: 600;">S'inscrire</button>
+                </form>
+                <p style="font-size: 0.9rem; margin-top: 1rem; color: rgba(255, 255, 255, 0.7);">Aucun spam, désinscription facile à tout moment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-spotify"></i>
+                </a>
+            </div>
+            <p>&copy; 2025 Patrick Seguin. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script>
+        // Enhanced form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.textContent = 'Envoi en cours...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (replace with actual Formspree or similar service)
+            setTimeout(() => {
+                // Show success message
+                showMessage('Merci pour votre message! Je vous répondrai dans les plus brefs délais.', 'success');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        });
+        
+        // Newsletter form handling
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Inscription...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Merci pour votre inscription! Vous recevrez bientôt mes dernières nouvelles musicales.');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 1000);
+        });
+        
+        function showMessage(message, type) {
+            // Remove existing messages
+            const existingMessage = document.querySelector('.form-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            // Create message element
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `form-message ${type}`;
+            messageDiv.textContent = message;
+            
+            // Style the message
+            Object.assign(messageDiv.style, {
+                padding: '1rem',
+                borderRadius: 'var(--border-radius)',
+                marginTop: '1rem',
+                textAlign: 'center',
+                fontWeight: '500'
+            });
+            
+            if (type === 'success') {
+                messageDiv.style.background = '#d4edda';
+                messageDiv.style.color = '#155724';
+                messageDiv.style.border = '1px solid #c3e6cb';
+            } else if (type === 'error') {
+                messageDiv.style.background = '#f8d7da';
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.border = '1px solid #f5c6cb';
+            }
+            
+            // Add to form
+            const contactForm = document.querySelector('#contact-form');
+            contactForm.appendChild(messageDiv);
+            
+            // Remove after 5 seconds
+            setTimeout(() => {
+                if (messageDiv.parentNode) {
+                    messageDiv.remove();
+                }
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
