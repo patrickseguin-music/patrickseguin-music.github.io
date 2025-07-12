@@ -121,6 +121,7 @@ class PatrickSeguinWebsite {
         this.highlightActiveNavItem();
         this.setupScrollAnimations();
         this.setupContactForm();
+        this.updateLanguageButtons();
     }
 
     setupEventListeners() {
@@ -212,6 +213,16 @@ class PatrickSeguinWebsite {
 
         // Update document language
         document.documentElement.lang = lang;
+        
+        // Update language buttons
+        this.updateLanguageButtons();
+    }
+
+    updateLanguageButtons() {
+        // Update active language button on all pages
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === this.currentLang);
+        });
     }
 
     highlightActiveNavItem() {
