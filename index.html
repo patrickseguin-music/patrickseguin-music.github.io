@@ -5,374 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patrick Seguin - Auteur-compositeur | Créateur musical</title>
     <meta name="description" content="Site officiel de Patrick Seguin, artiste musical indépendant. Découvrez mes créations musicales réalisées avec Suno AI.">
-    <style>
-        /* Base & Reset */
-        :root {
-            --primary: #1DB954;
-            --dark: #121212;
-            --dark-secondary: #181818;
-            --light: #ffffff;
-            --gray: #b3b3b3;
-            --transition: all 0.3s ease;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
-            line-height: 1.6;
-        }
-        
-        /* Typography */
-        h1, h2, h3 {
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-        
-        h1 { font-size: 2.5rem; }
-        h2 { font-size: 2rem; }
-        h3 { font-size: 1.5rem; }
-        
-        p {
-            margin-bottom: 1rem;
-            color: var(--gray);
-        }
-        
-        a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        a:hover {
-            opacity: 0.8;
-        }
-        
-        /* Layout */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        section {
-            padding: 4rem 0;
-        }
-        
-        /* Header */
-        header {
-            background-color: var(--dark-secondary);
-            position: fixed;
-            width: 100%;
-            z-index: 100;
-            padding: 1rem 0;
-        }
-
-        .language-switcher {
-            display: flex;
-            gap: 0.5rem;
-            margin-left: 1.5rem;
-        }
-
-        .lang-btn {
-            background: none;
-            border: 1px solid var(--gray);
-            color: var(--gray);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 0.9rem;
-        }
-
-        .lang-btn.active {
-            background-color: var(--primary);
-            border-color: var(--primary);
-            color: var(--light);
-        }
-
-        .lang-btn:hover {
-            opacity: 0.8;
-        }
-
-        @media (max-width: 768px) {
-            .language-switcher {
-                margin-left: 0;
-                margin-top: 1rem;
-                justify-content: center;
-            }
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--light);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .nav-links a {
-            color: var(--light);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--light);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            text-align: center;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: var(--light);
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--light);
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Music Section */
-        .music {
-            background-color: var(--dark-secondary);
-        }
-        
-        .platforms {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .platform {
-            background-color: var(--dark);
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: var(--transition);
-        }
-        
-        .platform:hover {
-            transform: translateY(-5px);
-            background-color: rgba(29, 185, 84, 0.1);
-        }
-        
-        .platform i {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        
-        @media (min-width: 768px) {
-            .about-content {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        
-        /* Blog Section */
-        .blog-posts {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        
-        @media (min-width: 768px) {
-            .blog-posts {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        .post {
-            background-color: var(--dark-secondary);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .post-img {
-            height: 200px;
-            width: 100%;
-            object-fit: cover;
-        }
-        
-        .post-content {
-            padding: 1.5rem;
-        }
-        
-        /* Contact Section */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 0.8rem;
-            border-radius: 5px;
-            border: 1px solid #333;
-            background-color: var(--dark-secondary);
-            color: var(--light);
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-secondary);
-            padding: 3rem 0;
-            text-align: center;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .social-links a {
-            font-size: 1.5rem;
-            color: var(--light);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.75rem; }
-        }
-    </style>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="keywords" content="Patrick Seguin, musique, auteur-compositeur, Suno AI, artiste indépendant, DistroKid">
+    <meta name="author" content="Patrick Seguin">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Patrick Seguin - Auteur-compositeur | Créateur musical">
+    <meta property="og:description" content="Découvrez l'univers musical de Patrick Seguin, artiste indépendant qui utilise Suno AI pour créer des compositions uniques.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://patrickseguin-music.github.io/">
+    <meta property="og:image" content="https://patrickseguin-music.github.io/images/og-image.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Patrick Seguin - Auteur-compositeur | Créateur musical">
+    <meta name="twitter:description" content="Découvrez l'univers musical de Patrick Seguin, artiste indépendant qui utilise Suno AI pour créer des compositions uniques.">
+    <meta name="twitter:image" content="https://patrickseguin-music.github.io/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="container header-container">
-            <a href="#" class="logo">Patrick Seguin</a>
-            <nav>
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="#music" data-i18n="music">Musique</a></li>
-                    <li><a href="#about" data-i18n="about">À Propos</a></li>
-                    <li><a href="#blog" data-i18n="blog">Actualités</a></li>
-                    <li><a href="#contact" data-i18n="contact">Contact</a></li>
-                </ul>
-                <div class="language-switcher">
-                    <button class="lang-btn active" data-lang="fr">FR</button>
-                    <button class="lang-btn" data-lang="en">EN</button>
-                </div>
-            </nav>
+        <div class="container">
+            <div class="header-container">
+                <a href="index.html" class="logo" data-i18n="name">Patrick Seguin</a>
+                
+                <nav>
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="active" data-i18n="home">Accueil</a></li>
+                        <li><a href="music.html" data-i18n="music">Musique</a></li>
+                        <li><a href="about.html" data-i18n="about">À Propos</a></li>
+                        <li><a href="contact.html" data-i18n="contact">Contact</a></li>
+                    </ul>
+                    
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="fr">FR</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                </nav>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container hero-content">
-            <h1 data-i18n="name">Patrick Seguin</h1>
-            <p data-i18n="tagline">Auteur-compositeur | Créateur musical</p>
-            <a href="#music" class="btn" data-i18n="listen">Écouter ma musique</a>
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-i18n="name">Patrick Seguin</h1>
+                <p data-i18n="tagline">Auteur-compositeur | Créateur musical</p>
+                <a href="music.html" class="btn btn-primary btn-large" data-i18n="listen">Découvrir ma musique</a>
+            </div>
         </div>
     </section>
 
-    <!-- Music Section -->
-    <section id="music" class="music">
+    <!-- Latest Release Section -->
+    <section class="latest-release">
         <div class="container">
-            <h2 data-i18n="music">Ma Musique</h2>
-            <p data-i18n="discover">Découvrez mes créations sur toutes les plateformes</p>
+            <h2 class="text-center mb-4" data-i18n="latest_release">Dernière sortie</h2>
             
-            <div class="platforms">
-                <a href="#" class="platform" target="_blank">
+            <div class="grid grid-2">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Latest Release" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Nouveau Single</h3>
+                        <p class="card-text">Découvrez ma dernière création musicale, une exploration unique des émotions humaines à travers des mélodies innovantes.</p>
+                        <a href="music.html" class="btn btn-outline">Écouter maintenant</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content" style="padding: 2rem;">
+                        <h3 class="card-title">Processus créatif</h3>
+                        <p class="card-text">Plongez dans mon univers artistique et découvrez comment j'utilise Suno AI pour donner vie à mes compositions.</p>
+                        <ul style="list-style: none; padding: 0; margin: 1rem 0;">
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-music" style="color: var(--primary); margin-right: 0.5rem;"></i> Création avec Suno AI</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-pen-fancy" style="color: var(--primary); margin-right: 0.5rem;"></i> Écriture authentique</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-globe" style="color: var(--primary); margin-right: 0.5rem;"></i> Distribution via DistroKid</li>
+                        </ul>
+                        <a href="about.html" class="btn btn-outline" data-i18n="learn_more">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Platforms Section -->
+    <section class="platforms-section" style="background: var(--gray-light); padding: 5rem 0;">
+        <div class="container">
+            <h2 class="text-center mb-4" data-i18n="discover">Découvrez mes créations sur toutes les plateformes</h2>
+            
+            <div class="grid grid-4">
+                <a href="#" class="platform" data-platform="spotify">
                     <i class="fab fa-spotify"></i>
                     <h3 data-i18n="spotify">Spotify</h3>
                 </a>
-                <a href="#" class="platform" target="_blank">
+                
+                <a href="#" class="platform" data-platform="apple">
                     <i class="fab fa-apple"></i>
                     <h3 data-i18n="apple_music">Apple Music</h3>
                 </a>
-                <a href="#" class="platform" target="_blank">
+                
+                <a href="#" class="platform" data-platform="youtube">
                     <i class="fab fa-youtube"></i>
                     <h3 data-i18n="youtube_music">YouTube Music</h3>
                 </a>
-                <a href="#" class="platform" target="_blank">
+                
+                <a href="#" class="platform" data-platform="deezer">
                     <i class="fab fa-deezer"></i>
                     <h3 data-i18n="deezer">Deezer</h3>
                 </a>
@@ -380,67 +135,30 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- About Preview Section -->
+    <section class="about-preview">
         <div class="container">
-            <h2 data-i18n="about">À Propos</h2>
-            <div class="about-content">
+            <div class="grid grid-2">
                 <div>
+                    <h2 data-i18n="about_title">À Propos de Moi</h2>
                     <p data-i18n="bio1">Je suis Patrick Seguin, artiste musical indépendant passionné par l'écriture et la création musicale.</p>
                     <p data-i18n="bio2">J'utilise Suno AI pour donner vie à mes compositions, combinant technologie et créativité pour produire une musique unique.</p>
+                    <a href="about.html" class="btn btn-primary" data-i18n="learn_more">En savoir plus</a>
                 </div>
-                <div>
-                    <p data-i18n="bio3">Ma démarche artistique repose sur l'authenticité des textes et l'exploration de nouvelles sonorités.</p>
-                    <p data-i18n="bio4">Distribué via DistroKid, je partage ma musique avec le monde tout en conservant mon indépendance créative.</p>
+                
+                <div class="text-center">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Patrick Seguin" style="border-radius: var(--border-radius); max-width: 100%; height: auto; box-shadow: var(--shadow-medium);">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Blog Section -->
-    <section id="blog" class="blog">
+    <!-- Call to Action Section -->
+    <section class="cta-section" style="background: var(--gradient-primary); color: var(--light); text-align: center; padding: 5rem 0;">
         <div class="container">
-            <h2 data-i18n="news">Actualités</h2>
-            <div class="blog-posts">
-                <article class="post">
-                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Processus créatif" class="post-img">
-                    <div class="post-content">
-                        <h3 data-i18n="process">Mon Processus Créatif</h3>
-                        <p data-i18n="processDesc">Découvrez comment je crée ma musique avec Suno AI, de l'écriture des paroles à la production finale.</p>
-                        <a href="#" class="btn" data-i18n="read_more">Lire plus</a>
-                    </div>
-                </article>
-                <article class="post">
-                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Nouvelle sortie" class="post-img">
-                    <div class="post-content">
-                        <h3 data-i18n="release">Nouvelle Sortie</h3>
-                        <p data-i18n="releaseDesc">Mon dernier single est maintenant disponible sur toutes les plateformes. Découvrez l'histoire derrière cette création.</p>
-                        <a href="#" class="btn" data-i18n="read_more">Lire plus</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 data-i18n="contactTitle">Contact</h2>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name" data-i18n="nameLabel">Nom</label>
-                    <input type="text" id="name" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="email" data-i18n="emailLabel">Email</label>
-                    <input type="email" id="email" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="message" data-i18n="messageLabel">Message</label>
-                    <textarea id="message" class="form-control" required></textarea>
-                </div>
-                <button type="submit" class="btn" data-i18n="send">Envoyer</button>
-            </form>
+            <h2 style="color: var(--light); margin-bottom: 1rem;">Restons en contact</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.9);">Vous avez un projet musical? Une collaboration en tête? N'hésitez pas à me contacter!</p>
+            <a href="contact.html" class="btn btn-outline" style="border-color: var(--light); color: var(--light);" data-i18n="get_in_touch">Me contacter</a>
         </div>
     </section>
 
@@ -448,176 +166,27 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-spotify"></i>
+                </a>
             </div>
             <p>&copy; 2025 Patrick Seguin. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <script>
-        // Translations
-        const translations = {
-            fr: {
-                music: "Musique",
-                about: "À Propos",
-                blog: "Actualités",
-                contact: "Contact",
-                name: "Patrick Seguin",
-                tagline: "Auteur-compositeur | Créateur musical",
-                listen: "Écouter ma musique",
-                discover: "Découvrez mes créations sur toutes les plateformes",
-                spotify: "Spotify",
-                apple_music: "Apple Music",
-                youtube_music: "YouTube Music",
-                deezer: "Deezer",
-                bio1: "Je suis Patrick Seguin, artiste musical indépendant passionné par l'écriture et la création musicale.",
-                bio2: "J'utilise Suno AI pour donner vie à mes compositions, combinant technologie et créativité pour produire une musique unique.",
-                bio3: "Ma démarche artistique repose sur l'authenticité des textes et l'exploration de nouvelles sonorités.",
-                bio4: "Distribué via DistroKid, je partage ma musique avec le monde tout en conservant mon indépendance créative.",
-                news: "Actualités",
-                process: "Mon Processus Créatif",
-                processDesc: "Découvrez comment je crée ma musique avec Suno AI, de l'écriture des paroles à la production finale.",
-                release: "Nouvelle Sortie",
-                releaseDesc: "Mon dernier single est maintenant disponible sur toutes les plateformes. Découvrez l'histoire derrière cette création.",
-                read_more: "Lire plus",
-                contactTitle: "Contact",
-                nameLabel: "Nom",
-                emailLabel: "Email",
-                messageLabel: "Message",
-                send: "Envoyer",
-                thanks: "Merci pour votre message! Je vous répondrai dès que possible."
-            },
-            en: {
-                music: "Music",
-                about: "About",
-                blog: "News",
-                contact: "Contact",
-                name: "Patrick Seguin",
-                tagline: "Songwriter | Music Creator",
-                listen: "Listen to my music",
-                discover: "Discover my creations on all platforms",
-                spotify: "Spotify",
-                apple_music: "Apple Music",
-                youtube_music: "YouTube Music",
-                deezer: "Deezer",
-                bio1: "I am Patrick Seguin, an independent music artist passionate about writing and music creation.",
-                bio2: "I use Suno AI to bring my compositions to life, combining technology and creativity to produce unique music.",
-                bio3: "My artistic approach is based on authentic lyrics and exploration of new sounds.",
-                bio4: "Distributed via DistroKid, I share my music with the world while maintaining my creative independence.",
-                news: "News",
-                process: "My Creative Process",
-                processDesc: "Discover how I create my music with Suno AI, from writing lyrics to final production.",
-                release: "New Release",
-                releaseDesc: "My latest single is now available on all platforms. Discover the story behind this creation.",
-                read_more: "Read more",
-                contactTitle: "Contact",
-                nameLabel: "Name",
-                emailLabel: "Email",
-                messageLabel: "Message",
-                send: "Send",
-                thanks: "Thank you for your message! I will get back to you as soon as possible."
-            }
-        };
-
-        // Set initial language
-        let currentLang = localStorage.getItem('language') || 'fr';
-
-        // Translate page
-        function translatePage(lang) {
-            currentLang = lang;
-            localStorage.setItem('language', lang);
-            
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                }
-            });
-
-            // Update active language button
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
-        }
-
-        // Language switcher
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                translatePage(btn.dataset.lang);
-            });
-        });
-
-        // Initialize translation
-        translatePage(currentLang);
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (navLinks.style.display === 'flex') {
-                        navLinks.style.display = 'none';
-                    }
-                }
-            });
-        });
-        
-        // Form submission
-        const contactForm = document.querySelector('.contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert(translations[currentLang].thanks);
-                this.reset();
-            });
-        }
-        
-        // Scroll animations
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.platform, .post');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        };
-        
-        // Set initial state for animations
-        document.querySelectorAll('.platform, .post').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        });
-        
-        window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll(); // Run once on load
-    </script>
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>

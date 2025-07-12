@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musique - Patrick Seguin | Découvrez mes créations</title>
+    <meta name="description" content="Découvrez la musique de Patrick Seguin. Écoutez mes créations sur Spotify, Apple Music, YouTube Music et Deezer.">
+    <meta name="keywords" content="Patrick Seguin, musique, streaming, Spotify, Apple Music, YouTube Music, Deezer, Suno AI">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Musique - Patrick Seguin | Découvrez mes créations">
+    <meta property="og:description" content="Découvrez la musique de Patrick Seguin. Écoutez mes créations sur toutes les plateformes de streaming.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://patrickseguin-music.github.io/music.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="index.html" class="logo" data-i18n="name">Patrick Seguin</a>
+                
+                <nav>
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
+                    <ul class="nav-links">
+                        <li><a href="index.html" data-i18n="home">Accueil</a></li>
+                        <li><a href="music.html" class="active" data-i18n="music">Musique</a></li>
+                        <li><a href="about.html" data-i18n="about">À Propos</a></li>
+                        <li><a href="contact.html" data-i18n="contact">Contact</a></li>
+                    </ul>
+                    
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="fr">FR</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background: var(--gradient-primary); color: var(--light); text-align: center; padding: 8rem 0 5rem; margin-top: 80px;">
+        <div class="container">
+            <h1 data-i18n="my_music">Ma Musique</h1>
+            <p style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9);" data-i18n="discover">Découvrez mes créations sur toutes les plateformes</p>
+        </div>
+    </section>
+
+    <!-- Music Platforms Section -->
+    <section class="platforms-main">
+        <div class="container">
+            <h2 class="text-center mb-5" data-i18n="listen_on">Écouter sur</h2>
+            
+            <div class="grid grid-4">
+                <a href="#" class="platform" data-platform="spotify" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-spotify"></i>
+                    <h3 data-i18n="spotify">Spotify</h3>
+                    <p>Écoutez mes titres en streaming sur Spotify</p>
+                </a>
+                
+                <a href="#" class="platform" data-platform="apple" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-apple"></i>
+                    <h3 data-i18n="apple_music">Apple Music</h3>
+                    <p>Disponible sur Apple Music et iTunes</p>
+                </a>
+                
+                <a href="#" class="platform" data-platform="youtube" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i>
+                    <h3 data-i18n="youtube_music">YouTube Music</h3>
+                    <p>Écoutez et regardez sur YouTube Music</p>
+                </a>
+                
+                <a href="#" class="platform" data-platform="deezer" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-deezer"></i>
+                    <h3 data-i18n="deezer">Deezer</h3>
+                    <p>Streaming haute qualité sur Deezer</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Gallery Section -->
+    <section class="music-gallery" style="background: var(--gray-light);">
+        <div class="container">
+            <h2 class="text-center mb-5">Mes Créations</h2>
+            
+            <div class="grid grid-3">
+                <!-- Song 1 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Single 1" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Dernier Single</h3>
+                        <p class="card-text">Une exploration musicale des émotions contemporaines, créée avec Suno AI.</p>
+                        <div class="music-links" style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
+                            <a href="#" class="btn" style="padding: 0.5rem; background: #1DB954; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;" title="Spotify">
+                                <i class="fab fa-spotify"></i>
+                            </a>
+                            <a href="#" class="btn" style="padding: 0.5rem; background: #000; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;" title="Apple Music">
+                                <i class="fab fa-apple"></i>
+                            </a>
+                            <a href="#" class="btn" style="padding: 0.5rem; background: #FF0000; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;" title="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Song 2 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Single 2" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Création Précédente</h3>
+                        <p class="card-text">Un mélange unique de mélodies traditionnelles et d'innovation technologique.</p>
+                        <div class="music-links" style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
+                            <a href="#" class="btn" style="padding: 0.5rem; background: #1DB954; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;" title="Spotify">
+                                <i class="fab fa-spotify"></i>
+                            </a>
+                            <a href="#" class="btn" style="padding: 0.5rem; background: #000; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;" title="Apple Music">
+                                <i class="fab fa-apple"></i>
+                            </a>
+                            <a href="#" class="btn" style="padding: 0.5rem; background: #FF0000; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;" title="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Song 3 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Single 3" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Premier Opus</h3>
+                        <p class="card-text">Le début de mon aventure musicale avec Suno AI, une première exploration créative.</p>
+                        <div class="music-links" style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
+                            <a href="#" class="btn" style="padding: 0.5rem; background: #1DB954; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;" title="Spotify">
+                                <i class="fab fa-spotify"></i>
+                            </a>
+                            <a href="#" class="btn" style="padding: 0.5rem; background: #000; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;" title="Apple Music">
+                                <i class="fab fa-apple"></i>
+                            </a>
+                            <a href="#" class="btn" style="padding: 0.5rem; background: #FF0000; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;" title="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creative Process Section -->
+    <section class="creative-process">
+        <div class="container">
+            <h2 class="text-center mb-5" data-i18n="creative_process">Processus Créatif</h2>
+            
+            <div class="grid grid-2">
+                <div>
+                    <h3>Innovation Technologique</h3>
+                    <p>J'utilise Suno AI comme partenaire créatif pour donner vie à mes compositions. Cette technologie me permet d'explorer de nouvelles possibilités sonores tout en conservant mon identité artistique.</p>
+                    
+                    <h3 style="margin-top: 2rem;">Écriture Authentique</h3>
+                    <p>Chaque chanson commence par une émotion, une histoire ou une réflexion personnelle. Les paroles sont le cœur de ma création, reflétant mes expériences et observations du monde.</p>
+                </div>
+                
+                <div>
+                    <h3>Distribution Mondiale</h3>
+                    <p>Grâce à DistroKid, ma musique est disponible sur plus de 150 plateformes de streaming dans le monde entier, permettant à mes créations de toucher un public international.</p>
+                    
+                    <h3 style="margin-top: 2rem;">Collaboration Future</h3>
+                    <p>Je suis toujours ouvert à de nouvelles collaborations et projets musicaux. N'hésitez pas à me contacter si vous souhaitez explorer des possibilités créatives ensemble.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter" style="background: var(--gradient-primary); color: var(--light); text-align: center; padding: 4rem 0;">
+        <div class="container">
+            <h2 style="color: var(--light); margin-bottom: 1rem;">Restez informé</h2>
+            <p style="margin-bottom: 2rem; color: rgba(255, 255, 255, 0.9);">Soyez les premiers à découvrir mes nouvelles créations musicales</p>
+            
+            <div style="max-width: 400px; margin: 0 auto;">
+                <form id="newsletter-form" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                    <input type="email" placeholder="Votre email" required style="flex: 1; min-width: 250px; padding: 0.75rem 1rem; border: none; border-radius: var(--border-radius); font-size: 1rem;">
+                    <button type="submit" class="btn" style="background: var(--light); color: var(--primary); border: none; white-space: nowrap;">S'abonner</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-spotify"></i>
+                </a>
+            </div>
+            <p>&copy; 2025 Patrick Seguin. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script>
+        // Newsletter form handling
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            // Show success message (replace with actual newsletter signup)
+            alert('Merci pour votre inscription! Vous recevrez mes dernières nouvelles musicales.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
